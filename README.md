@@ -10,7 +10,7 @@ Both can be install via pip
 `pip install requests bs4`
 
 ## Download
-The latest release can be installed [here](https://github.com/katzrkool/mySchoolDining)
+The latest release can be installed [here](https://github.com/katzrkool/mySchoolDining/releases)
 
 ## Usage
 Run menu.py
