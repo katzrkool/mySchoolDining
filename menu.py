@@ -56,13 +56,13 @@ def pickMenuSelector():
 def determineWhichMenuToGrab():
     todayzers = datetime.today().hour
     datezers = datetime.today()
-    if datetime.today().weekday() == 6 or datetime.today().weekday() == 0:
-        while datezers.weekday() != 1:
+    if datetime.today().weekday() == 6 or datetime.today().weekday() == 5:
+        while datezers.weekday() != 0:
             datezers += theCENTER.timedelta(1)
-    elif todayzers > 12 and datezers.weekday() != 5:
+    elif todayzers > 12 and datezers.weekday() != 4:
             datezers += theCENTER.timedelta(1)
-    elif todayzers > 12 and datezers.weekday() == 5:
-        while datezers.weekday() != 1:
+    elif todayzers > 12 and datezers.weekday() == 4:
+        while datezers.weekday() != 0:
             datezers += theCENTER.timedelta(1)
     elif todayzers <= 12:
         pass
