@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import datetime as theCENTER
 import os
+import sys
 
 doIExist = True
 
@@ -49,11 +50,10 @@ def pickMenuSelector():
                 print("{}. {}".format(i+1, button[i].text))
             menuSelection = int(input("Which menu do you want? Type in the number next to your chosen menu\t")) -1
         litButton = button[menuSelection].get("id")
-        date = determineWhichMenuToGrab()
-        formatAndPrintDatData(litButton, date)
+        return litButton
 
 
-def determineWhichMenuToGrab():
+def determineWhichMenuToGrab(argv):
     todayzers = datetime.today().hour
     datezers = datetime.today()
     if datetime.today().weekday() == 6 or datetime.today().weekday() == 5:
@@ -66,8 +66,26 @@ def determineWhichMenuToGrab():
             datezers += theCENTER.timedelta(1)
     elif todayzers <= 12:
         pass
-    return datezers
-
+    if argv == 0:
+    	return datezers
+    elif argv == "t" or argv == "+1":
+    	return datezers + theCENTER.timedelta(1)
+    elif argv.startswith("+") and isInt(''.join(list(argv)[1:])):
+    	return datezers + theCENTER.timedelta(int(''.join(list(argv)[1:])))
+    else:
+    	print('Not a valid argument!\n')
+    	return datezers
+    	
+def isInt(numero):
+	print(numero)
+	try:
+		int(numero)
+		print('yes')
+		return True
+	except:
+		print('no')
+		return False
+	
 def formatAndPrintDatData(litbutton,date):
     #what day is it?
     day = str(date.day)
@@ -102,4 +120,10 @@ def saveDatData():
             json.dump({"schoolName":schoolName, "menu":menuSelection}, fp)
         except:
             json.dump({"schoolName":schoolName}, fp)
-pickMenuSelector()
+            
+try:
+	menu = determineWhichMenuToGrab(sys.argv[1])
+except:
+	menu = determineWhichMenuToGrab(0)
+	
+formatAndPrintDatData(pickMenuSelector(), menu)
