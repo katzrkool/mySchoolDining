@@ -115,7 +115,7 @@ def formatAndPrintDatData(litbutton,date):
 
 #save data
 def saveDatData():
-    with open("{}/preferences.json".format(os.path.dirname(__file__)),"w") as fp:
+    with open("{}/preferences.json".format(os.path.dirname(os.path.realpath(__file__))),"w") as fp:
         try:
             json.dump({"schoolName":schoolName, "menu":menuSelection}, fp)
         except:
