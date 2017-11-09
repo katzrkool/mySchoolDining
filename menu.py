@@ -10,7 +10,7 @@ doIExist = True
 
 #tries to open prefrences and set schoolName and menuSelection variables
 try:
-    with open("{}/preferences.json".format(os.path.dirname(__file__)),"r") as f:
+    with open("{}/preferences.json".format(os.path.dirname(os.path.realpath(__file__))),"r") as f:
         preferences = json.load(f)
         schoolName = preferences["schoolName"]
         try:
