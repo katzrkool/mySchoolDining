@@ -77,13 +77,10 @@ def determineWhichMenuToGrab(argv):
 		return datezers
 		
 def isInt(numero):
-	print(numero)
 	try:
 		int(numero)
-		print('yes')
 		return True
 	except:
-		print('no')
 		return False
 		
 def formatAndPrintDatData(litbutton,date):
