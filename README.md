@@ -7,7 +7,7 @@ Downloads menu from MySchoolDining and prints it
 
 Both can be install via pip
 
-`pip install requests bs4`
+`pip install -r requirements.txt`
 
 ## Download
 The latest release can be installed [here](https://github.com/katzrkool/mySchoolDining/releases)
