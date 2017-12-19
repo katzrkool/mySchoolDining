@@ -31,6 +31,13 @@ To delete your choices, delete preferences.json
 
 Enjoy!
 
+### Arguments!
+-t for tomorrow
+
+-w week view
+
+-f number, see this many days into the future
+
 ## Stuff to do
 - [ ] Allow in program deletion of preferences
 - [ ] Add support for headers like Lunch or Breakfast
